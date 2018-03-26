@@ -17,10 +17,21 @@ var (
 // Single represents the name and the open file descriptor
 type Single struct {
 	name string
+	tempdir string
 	file *os.File
 }
 
 // New creates a Single instance
 func New(name string) *Single {
-	return &Single{name: name}
+	return &Single{
+		name: name,
+		tempdir: "",
+	}
+}
+
+func NewWithTempDir(name, tempdir string) *Single {
+	return &Single{
+		name: name,
+		tempdir: tempdir,
+	}
 }
