@@ -14,7 +14,7 @@ func (s *Single) Filename() string {
 	if len(Lockfile) > 0 {
 		return Lockfile
 	}
-	return filepath.Join(os.TempDir(), fmt.Sprintf("%s.lock", s.name))
+	return filepath.Join(s.tempdir, fmt.Sprintf("%s.lock", s.name))
 }
 
 // Lock tries to remove the lock file, if it exists.
